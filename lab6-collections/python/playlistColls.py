@@ -54,11 +54,11 @@ piece2 = Piece("Pathetique", "D. Barenboim", 16*60+49.0)
 advert1 = Advert(Product("Bounty", "Mars"), 15.0)
 
 # a heterogeneous list:
-things = [111, piece1, "hello", advert1, [piece2]]
+things = [111, piece1, "hello", advert1, [piece2]] # here links with 61
 
 print("things = %s" % things)
 
-piecesFromThings = "todo" #TASK 6.2-c -- replace "todo" by a list comprehension
+piecesFromThings = [ thing for thing in things if isinstance (thing, Piece)] #TASK 6.2-c -- replace "todo" by a list comprehension
 
 print("piecesFromThings = %s" % piecesFromThings)
 
@@ -74,7 +74,7 @@ playlist1noAds = [ item for item in playlist1 if item.__class__ != Advert ]
 
 print("playlist1noAds = %s" % playlist1noAds)
 
-shortItemLenghts1 = "todo" # TASK 6.2-b -- replace "todo" by a list comprehension
+shortItemLenghts1 = [ item.length_secs for item in playlist1 if item.length_secs < 20 ] # TASK 6.2-b -- replace "todo" by a list comprehension
 
 print("shortItemLenghts1 = %s" % shortItemLenghts1)
 
