@@ -70,9 +70,9 @@ public class PlaylistColls {
         System.out.printf("playlist1 = %s\n", playlist1);
 
         // use mapping to extract all lengths from playlist1:
-        List<Float> lengths1 = new ArrayList<>();
-        for (Item item : playlist1) {
-            lengths1.add(item.length_secs);
+        List<Float> lengths1 = new ArrayList<>(); //makes empty list
+        for (Item item : playlist1) { //loop every item in playlist
+            lengths1.add(item.length_secs); //extract length (mapping) and adds it to new list
         }
 
         System.out.printf("lengths1 = %s\n", lengths1);
@@ -85,8 +85,8 @@ public class PlaylistColls {
         System.out.printf("lengths1_streams = %s\n", lengths1_streams);
 
         // use filtering to remove adverts:
-        List<Item> playlist1noAds = new ArrayList<>();
-        for (Item item : playlist1) {
+        List<Item> playlist1noAds = new ArrayList<>(); //makes empty list
+        for (Item item : playlist1) { //loop every item in playlist
             if (!(item instanceof Advert)) {
                 playlist1noAds.add(item);
             }
@@ -103,7 +103,11 @@ public class PlaylistColls {
 
         List<Float> shortItemLengths1 = new ArrayList<>();
         // TASK 6-1(b)...
-
+        for (Item item : playlist1) {
+            if (item.length_secs < 20) { //filtering
+                shortItemLengths1.add(item.length_secs); //mapping
+            }
+        }
 
 
 
