@@ -48,15 +48,15 @@ playlist1 = [piece1, advert1, piece2]
 
 lengths1 = [ item_length_secs item | item <- playlist1 ]
 
-playlist1noAds = [ item | item <- playlist1, not (isAdvert item) ]
+playlist1noAds = [ item | item <- playlist1, not (isAdvert item) ] -- links with list comprehension
 
 playlist2 = [piece2, advert1]
 
 playlists = [playlist1, playlist2] -- a list of lists
 
-adsFromPlaylists = "todo"  -- TASK 6.3-b
+adsFromPlaylists = [ item | item <- playlist1, (isAdvert item)]  -- TASK 6.3-b list comprehension 
 
-shortItemLenghts1 = "todo" -- TASK 6.3-a
+shortItemLenghts1 = [ item_length_secs item | item <- playlist1, item_length_secs item < 20 ] -- TASK 6.3-a
 
 main =
     do
