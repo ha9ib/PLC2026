@@ -49,19 +49,20 @@ class Advert:
         l = self.length_secs
         assert 0 < l and l < 120
 
-playlist1 = []
+playlist1 = [] #Global scope
 
 def definePlaylist1():
+    global playlist1 # to use Global func 
     piece1 = Piece("Moonlight", "C. Arrau", 17*60+26.0)
     piece2 = Piece("Pathetique", "D. Barenboim", 16*60+49.0)
     advert1 = Advert(Product("chocolate", "Yummm"), 15.0)
-    playlist1 = [piece1, advert1, piece2]
+    playlist1 = [piece1, advert1, piece2] # Func Scope, dif variables
     # TASK 7.3 b: fix the bug related to the scope and declaration of playlist1
     # you may ONLY edit the body of this function ("definePlaylist1"), no other code in playlistVars.py
 
 definePlaylist1()
 
-print("playlist1 = %s" % playlist1)
+print("playlist1 = %s" % playlist1) # Global scp (after func) still []
 
 length1 = sum([ item.length_secs for item in playlist1 ])
 
